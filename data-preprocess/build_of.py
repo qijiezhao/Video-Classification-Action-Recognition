@@ -1,4 +1,3 @@
-__author__ = 'yjxiong'
 
 import os
 import glob
