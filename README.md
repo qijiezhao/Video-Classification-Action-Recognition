@@ -1,6 +1,6 @@
 ### 北京大学研究生课程：
 # 计算视觉高级专题 - course project
------
+----------
 Author: Qijie Zhao
 
 Date: 06/26/2017
@@ -24,7 +24,6 @@ UCF101（full）#,hmdb51(testing)
 
 average accuracy （在3个split上）
 
-----
 
 ----------
 
