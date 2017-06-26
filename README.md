@@ -1,5 +1,9 @@
-# 计算视觉高级专题  course project
+# 北京大学研究生课程：
+# 计算视觉高级专题 - course project
 -----
+Author: Qijie Zhao
+Date: 06/26/2017
+
 
 ----------
 
