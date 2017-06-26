@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///C:/Users/17816/AppData/Local/Temp/MarkdownPadPreview.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>README</title>
+
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<!--<base href="file:\\\F:\lesson\计算机视觉高级专题\course_project\">--><base href=".">
+</head>
+<body>
+<h1>计算视觉高级专题  course project</h1>
+<hr>
+<hr>
+<h3>任务：</h3>
+<p>视频分类</p>
+<h3>任务描述：</h3>
+<p>对短时序视频进行视频分类。通过对训练集视频进行训练，使模型具有良好的视频分类能力，在测试阶段，模型需要给测试集中每个视频一个类别标签。</p>
+<h3>数据集：</h3>
+<p>UCF101（full）#,hmdb51(testing)</p>
+<h3>评测标准：</h3>
+<p>average accuracy （在3个split上）</p>
+<hr>
+<hr>
+<h3>实验介绍：</h3>
+<p>本次任务，实验尝试了C3D[4], TSN[2], DOVF[3], TS_LSTM[1](code testing)等思路。</p>
+<hr>
+<h4>(0)预处理：</h4>
+<p>首先要设置好实验数据的路径和caffe等依赖外部文件的路径（略）。</p>
+<p>path: data-preprocess/</p>
+<pre><code>python data-preprocess/generate_traintest_list.py #生成训练集和测试集的list
+python data-preprocess/generate_optical_flow_traintest_list.py #生成光流的训练集和测试集的list
+python data-preprocess/build_of.py (source_path) (out_path) --df_path=(denseflow_path)#生成光流,需要指定一些路径
+</code></pre>
+
+<h4>(1)C3D:</h4>
+<p>path: c3d-part/</p>
+<p>本实验是基于C3D 1.1 version, 分为3部分：</p>
+<h5>a) train from scratch</h5>
+<pre><code>cd c3d-part/c3d_ucf101_training
+sh train_simple.sh
+</code></pre>
+
+<h5>b) finetune from pretrained model</h5>
+<pre><code>cd c3d-part/c3d_ucf101_finetuning
+sh finetuing_ucf101.sh
+</code></pre>
+
+<h5>c) extract features using the pretrained model</h5>
+<pre><code>cd c3d-part/c3d_feature_extraction
+sh feature_extraction.sh
+</code></pre>
+
+<h5>实验结果：</h5>
+<p>1，train from scratch 如果只用ucf101训练，一直不收敛，可能需要一些新的大些的数据集pretrain才能收敛。</p>
+<p>2，training from pretrained model，pretrained model是在sports1m上面训练的，基础模型是resnet18。 收敛比较快，batch_size为8，训练40000次就能到测试集精度81%。 </p>
+<p>3，用训练好的C3D抽取的feature，然后用linear-SVM训练并分类，在测试集上的精度能到82.3%，使用chi2-svm训练并分类能达到85.3%的精度。文中的90%左右的精度是通过和iDT[5]做融合得到的结果(x)。</p>
+<h4>(2)TSN:</h4>
+<p>path: train-model+extract-feature/</p>
+<p>本实验是基于TSN的，实验过程使用了一些TSN的code。</p>
+<p>同样包括(a)训练模型和(b)用模型抽取图像帧数据的feature：</p>
+<p>模型文件在 train-model+extract-feature/models下</p>
+<h5>训练模型：</h5>
+<pre><code>sh train-model+extract-feature/train_tsn.sh
+</code></pre>
+
+<h5>用模型抽取feature：</h5>
+<pre><code>python train-model+extract-feature/extrac_features.py ucf101 1 rgb (frame_path) (net_pro) (net_weights)
+</code></pre>
+
+<p>（需要抽取的层在代码中的参数score_name）</p>
+<h5>用训练的模型测试结果：</h5>
+<pre><code>python train-model+extract-feature/eval_net.py ucf101 1 rgb (frame_path) (net_pro) (net_weights)
+</code></pre>
+
+<h4>实验结果：</h4>
+<p>1，TSN的spatial frame部分得到了和论文中一样的结果，86%左右。光流部分，暂时使用的opencv::calcOpticalFlowFarneback()计算光流，效果不如TVL1，只有79%（end-to-end 的测试集结果）</p>
+<p>2，TSN在训练单模型方面，效果是目前最好的，主要有如下几点原因(后来很多文章都沿用了这些trick)：</p>
+<p>a), Data augmentation （training）： 4 scales x (4 corners + 1 center) x 2 flipped ,输入数据有多个crop的方式，这使得输入训练的数据具备多尺度，多角度，以及对称不变等特点。 同时也让数据集“变”大了。</p>
+<p>b),同一个视频一次只送入n张训练（一个视频被切分成n个segments，实验里n=3），然后分别在每个segment里面随机挑选一张，这n张图像在通过网络之后，其结果会再过一个average-pooling, 这使得不至于太多相似图像一起训练造成网络很容易过拟合。</p>
+<p>c),在测试阶段，TSN把一个视频平均取25个frame，每个frame经过 （4 corner + 1 center) * 2 flipped 的crop操作，然后把这10张图像取一个平均值。</p>
+<p>3，文中使用的bn_inception结构虽然在图像分类任务上不及resnet等模型，但是却能很好的适用于数据量不大，容易更拟合的任务，比如像ucf101一样的视频分类数据集。</p>
+<h4>(3)DOVF:</h4>
+<p>path: svm+gbdt/</p>
+<p>为了方便，我把gbdt也放在了svm_kernel的选择里面，实际上gbdt和svm是不相干的。</p>
+<p>仿照[3]的实验设计，我用TSN的网络抽取了ucf101所以视频的frame-level的feature，方法是按照测试集的处理，即平均取25个frame，然后每个frame做10份crop，并在输出的结果里面将这10个结果做average-pooling，之后得到25个feature。层是选择的第一层fc层，即导数第二层，这在[3]中被证明是bn_inception中表达能力最强的一层，同时包含足够的spatial information和high-level semantic information。然后这些feature通过三种不同的方式被送入SVM中进行训练：</p>
+<p>a)25个feature直接取average-pooling</p>
+<p>b)8+9+8的concatenation的方式，其中各小段内部使用average-pooling</p>
+<p>c)8+9+8的concatenation的方式，其中各小段内部使用max-pooling</p>
+<p>实验证明，c)效果最好，在split01的测试集上能达到88%</p>
+<p>gbdt对于本任务效果不太好，通过一系列调参，最多只能把测试集精度做到80.3%</p>
+<p>code implementation:</p>
+<pre><code>python svm+gbdt/svm_classification.py --id=1 --sigma=1 --data_type=max --is_shuffle=True --is_subtrain=1 --svm_kernel=linear/x2/rbf/gbdt --C=1 
+</code></pre>
+
+<h4>(4)TS_LSTM:</h4>
+<p>path: train-deep-model-freely/</p>
+<p>这是最后的尝试，也是正在继续做的部分。</p>
+<p>首先，这篇文章在resnet101上面训练得到了很接近bn_inception的结果，他的data augmentation的步骤学习了TSN的思路。 其次，这篇文章也是在模型抽取的feature（spatial concated with flow）上面做pooling的实验，分别尝试了LSTM和 conv-pooling，之前我在youtube-8m上面也做过相关的尝试，但是都不work，这篇文章虽然没有超过state of the art, 不过也几乎接近95%，这个工作可以继续follow下去（先用更灵活的代码复现出来），并把attention-based LSTM, MOE-RNN等也用到视频分类中，可以换一些更适合的数据集。</p>
+<p>code implementation:</p>
+<pre><code>python train-deep-model-freely/main.py --model=resnet101 --id=1 --batch_size=25 --gpu_id=0 --num_workers=4 --base_lr=0.01 --num_classes=101 --num_seg=3
+</code></pre>
+
+<p>目前复现的工作在训练集上97%（spatial level）,剩下的工作还在继续。</p>
+<hr>
+<h3>*未来工作</h3>
+<p>检测是在图像中标出bounding box，这是图像中的high-level semantic information。 而对于视频，则应该是一个cube，来做同样的事情。 如果视频分类还有下一步提升空间，很可能就在这个方向。 在图像中，训练好的模型，根据高层的激活单元反向传播，能看到激活这个神经元所需要的原图pixel，这表明是这些像素表达了该高层中该结点的激活。视频中同样应该有一个表示多帧中做activity的cube/continuous-part。这样的语义模块，在原始数据里面混杂着噪音（不同的背景，不同的额外语义信息等），这让分类任务变得困难，如果卷积核不再是固定的nxn，而是具有漂移的能力，可以使卷积是对真正的语义区域做操作，效果应该会更好。 deformable convolutional network[6]在每个卷积层前面加了一个偏置层，可以指定在做卷积时像素点需要偏置的坐标值，我的想法是deformable C3D在训练之后，是否具备映射视频中最关键的语义信息的能力呢，之后会通过实验验证这个想法。</p>
+<hr>
+<h3>参考论文：</h3>
+<p>[1].TS-LSTM and Temporal-Inception: Exploiting Spatiotemporal Dynamics for Activity Recognition.Chih-Yao Ma, Min-Hung Chen et,al. arXiv:1703.10667.https://arxiv.org/abs/1703.10667</p>
+<p>[2].Temporal Segment Networks: Towards Good Practices for Deep Action Recognition. Limin Wang, Yuanjun Xiong et al. ECCV 2016.http://wanglimin.github.io/papers/WangXWQLTV_ECCV16.pdf</p>
+<p>[3].Deep Local Video Feature for Action Recognition.Zhenzhong Lan et,al. arXiv:1701.07368. https://arxiv.org/abs/1701.07368</p>
+<p>[4].Learning Spatiotemporal Features with 3D Convolutional Networks.D. Tran, L. Bourdev et al.ICCV 2015 </p>
+<p>[5].Action Recognition with Improved Trajectories.Heng Wang, Cordelia Schmid et al. ICCV 2013</p>
+<p>[6].Deformable Convolutional Networks. Jifeng Dai, Haozhi Qi et al. arXiv:1703.06211. https://arxiv.org/abs/1703.06211</p>
+
+
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</body></html>
