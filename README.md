@@ -1,21 +1,21 @@
-#计算视觉高级专题  course project
+# 计算视觉高级专题  course project
 -----
 
 ----------
 
-###任务：
+### 任务：
 
 视频分类
 
-###任务描述：
+### 任务描述：
 
 对短时序视频进行视频分类。通过对训练集视频进行训练，使模型具有良好的视频分类能力，在测试阶段，模型需要给测试集中每个视频一个类别标签。
 
-###数据集：
+### 数据集：
 
 UCF101（full）#,hmdb51(testing)
 
-###评测标准：
+### 评测标准：
 
 average accuracy （在3个split上）
 
@@ -23,14 +23,14 @@ average accuracy （在3个split上）
 
 ----------
 
-###实验介绍：
+### 实验介绍：
 
 本次任务，实验尝试了C3D[4], TSN[2], DOVF[3], TS_LSTM[1](code testing)等思路。
 
 
 ----------
 
-####(0)预处理：
+#### (0)预处理：
 
 首先要设置好实验数据的路径和caffe等依赖外部文件的路径（略）。
 
@@ -42,23 +42,23 @@ path: data-preprocess/
 	python data-preprocess/build_of.py (source_path) (out_path) --df_path=(denseflow_path)#生成光流,需要指定一些路径
 
 
-####(1)C3D:
+#### (1)C3D:
 
 path: c3d-part/
 
 本实验是基于C3D 1.1 version, 分为3部分：
 
-#####a) train from scratch
+##### a) train from scratch
 	cd c3d-part/c3d_ucf101_training
 	sh train_simple.sh
-#####b) finetune from pretrained model
+##### b) finetune from pretrained model
 	cd c3d-part/c3d_ucf101_finetuning
 	sh finetuing_ucf101.sh
-#####c) extract features using the pretrained model
+##### c) extract features using the pretrained model
 	cd c3d-part/c3d_feature_extraction
 	sh feature_extraction.sh
 
-#####实验结果：
+##### 实验结果：
 
 1，train from scratch 如果只用ucf101训练，一直不收敛，可能需要一些新的大些的数据集pretrain才能收敛。
 
@@ -67,7 +67,7 @@ path: c3d-part/
 3，用训练好的C3D抽取的feature，然后用linear-SVM训练并分类，在测试集上的精度能到82.3%，使用chi2-svm训练并分类能达到85.3%的精度。文中的90%左右的精度是通过和iDT[5]做融合得到的结果(x)。
 
 
-####(2)TSN:
+#### (2)TSN:
 
 path: train-model+extract-feature/
 
@@ -77,21 +77,21 @@ path: train-model+extract-feature/
 
 模型文件在 train-model+extract-feature/models下
 
-#####训练模型：
+##### 训练模型：
 	
 	sh train-model+extract-feature/train_tsn.sh
 
-#####用模型抽取feature：
+##### 用模型抽取feature：
 
 	python train-model+extract-feature/extrac_features.py ucf101 1 rgb (frame_path) (net_pro) (net_weights)
 
 （需要抽取的层在代码中的参数score_name）
 
-#####用训练的模型测试结果：
+##### 用训练的模型测试结果：
 
 	python train-model+extract-feature/eval_net.py ucf101 1 rgb (frame_path) (net_pro) (net_weights)
 
-####实验结果：
+#### 实验结果：
 
 1，TSN的spatial frame部分得到了和论文中一样的结果，86%左右。光流部分，暂时使用的opencv::calcOpticalFlowFarneback()计算光流，效果不如TVL1，只有79%（end-to-end 的测试集结果）
 
@@ -105,7 +105,7 @@ c),在测试阶段，TSN把一个视频平均取25个frame，每个frame经过 �
 
 3，文中使用的bn_inception结构虽然在图像分类任务上不及resnet等模型，但是却能很好的适用于数据量不大，容易更拟合的任务，比如像ucf101一样的视频分类数据集。
 
-####(3)DOVF:
+#### (3)DOVF:
 
 path: svm+gbdt/
 
@@ -128,7 +128,7 @@ code implementation:
 	python svm+gbdt/svm_classification.py --id=1 --sigma=1 --data_type=max --is_shuffle=True --is_subtrain=1 --svm_kernel=linear/x2/rbf/gbdt --C=1 
 
 
-####(4)TS_LSTM:
+#### (4)TS_LSTM:
 
 path: train-deep-model-freely/
 
@@ -144,7 +144,7 @@ code implementation:
 
 -----
 
-###*未来工作
+### *未来工作
 
 
 检测是在图像中标出bounding box，这是图像中的high-level semantic information。 而对于视频，则应该是一个cube，来做同样的事情。 如果视频分类还有下一步提升空间，很可能就在这个方向。 在图像中，训练好的模型，根据高层的激活单元反向传播，能看到激活这个神经元所需要的原图pixel，这表明是这些像素表达了该高层中该结点的激活。视频中同样应该有一个表示多帧中做activity的cube/continuous-part。这样的语义模块，在原始数据里面混杂着噪音（不同的背景，不同的额外语义信息等），这让分类任务变得困难，如果卷积核不再是固定的nxn，而是具有漂移的能力，可以使卷积是对真正的语义区域做操作，效果应该会更好。 deformable convolutional network[6]在每个卷积层前面加了一个偏置层，可以指定在做卷积时像素点需要偏置的坐标值，我的想法是deformable C3D在训练之后，是否具备映射视频中最关键的语义信息的能力呢，之后会通过实验验证这个想法。
@@ -156,7 +156,7 @@ code implementation:
 
 
 ---
-###参考论文：
+### 参考论文：
 
 [1].TS-LSTM and Temporal-Inception: Exploiting Spatiotemporal Dynamics for Activity Recognition.Chih-Yao Ma, Min-Hung Chen et,al. arXiv:1703.10667.https://arxiv.org/abs/1703.10667
 
