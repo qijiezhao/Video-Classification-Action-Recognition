@@ -16,7 +16,7 @@ from math import sqrt
 
 '''
 this file contains several models including:
-ResNet_50, VGG19, inception_v4, C3D_version1, LSTM_version1
+ResNet_50, ResNet_101_segments, VGG19, inception_v3, inception_v4, CNN_M, C3D_version1, LSTM_version1
 
 '''
 
