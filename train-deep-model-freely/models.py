@@ -74,21 +74,51 @@ class VC_resnet101(nn.Module):
         x=x.view(-1,1,self.num_seg,101)#.cuda(self.gpu_id)
         x=self.avg_pool2d(x)
         return x
+class VC_inception_v3(nn.Module):
+    def __init__(self,out_size,gpu_id,num_seg):
+        super(VC_inception_v3,self).__init__()
+        self.gpu_id=gpu_id
+        self.num_seg=num_seg
+        self.inception_v3=torchvision.models.inception_v3(pretrained=True)
+        mod1=[nn.Dropout(p=0.8)]
+        mod1.append(nn.Linear(2048,101))
+        new_fc=nn.Sequential(*mod1)
+        self.inception_v3.fc=new_fc
+        mod2=[nn.Dropout(p=0.8)]
+        mod2.append(nn.Linear(768,101))
+        new_fc=nn.Sequential(*mod2)
+        self.inception_v3.AuxLogits.fc=new_fc
+        self.avg_pool2d=nn.AvgPool2d(kernel_size=(3,1))
 
-class inception_v4(nn.Module):
-    def __init__(self,out_size,gpu_id):
-        super(inception_v4,self).__init__()
+    def forward(self,x):
+        x=self.inception_v3(x)
+        x=x[0]+x[1]
+        x=x.view(-1,1,self.num_seg,101)
+        x=self.avg_pool2d(x)
+        return x
+
+class VC_inception_v4(nn.Module):
+    def __init__(self,out_size,gpu_id,num_seg):
+        super(VC_inception_v4,self).__init__()
         sys.path.insert(0,'../tool/models_zoo/')
         from inceptionv4.pytorch_load import inceptionv4
-        self.inception_v4=inceptionv4(pretrained=True).cuda(gpu_id)
+        self.inception_v4=inceptionv4(pretrained=True).cuda()
+        mod=[nn.Dropout(p=0.8)]#.cuda(self.gpu_id)]
+        mod.append(nn.Linear(1536,101))#.cuda(self.gpu_id))
+        new_fc=nn.Sequential(*mod)#.cuda(self.gpu_id)
+        self.inception_v4.classif=new_fc
+        self.num_seg=num_seg
+        #self.resnet101.fc=nn.Linear(2048,101).cuda(gpu_id)
+
+        self.avg_pool2d=nn.AvgPool2d(kernel_size=(3,1))#.cuda(self.gpu_id)
         # for params in self.inception_v4.parameters():
         #     params.requires_grad=False
         # for params in self.inception_v4.features[21].parameters():
         #     params.requires_grad=True
-        self.inception_v4.classif=nn.Linear(1536,101).cuda(gpu_id)
-
     def forward(self,x):
         x=self.inception_v4(x)
+        x=x.view(-1,1,self.num_seg,101)#.cuda(self.gpu_id)
+        x=self.avg_pool2d(x)
         return x
 
 class cnn_m(nn.Module):
